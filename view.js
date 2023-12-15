@@ -1,12 +1,19 @@
-const inquirer = require('inquirer');
-
+const { getQuestion } = require("./module");
+const inquirer = require("inquirer");
 inquirer
   .prompt([
+    { type: "input", name: "username", message: "Введи имя:" },
     {
-      name: 'faveReptile',
-      message: 'What is your favorite reptile?\n'
+      type: "list",
+      name: "bonuses",
+      message: "На сколько ты опоздал?",
+      choices: [
+        { name: "Не опаздывал", value: 0 },
+        { name: "На 2-3 минутки", value: 2 },
+        { name: "Опоздал и не сообщил", value: 5 },
+      ],
     },
   ])
-  .then(answers => {
-    console.info('Answer:', answers.faveReptile);
-  });
+  .then((answers) => console.info());
+
+  
