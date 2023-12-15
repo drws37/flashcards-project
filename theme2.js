@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const { getAnswer3,getQuestion3 } = require("./module.js");
 
 
-async function callInquirers() {
+async function callInquirers2() {
   const quest = await getQuestion3();
   const trueAnswer = await getAnswer3();
 
@@ -25,6 +25,6 @@ async function callInquirers() {
   }
 }
 
-callInquirers();
 
-module.exports = { callInquirers };
+
+module.exports = { callInquirers2 };

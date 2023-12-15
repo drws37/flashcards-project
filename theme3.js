@@ -1,25 +1,11 @@
 const inquirer = require("inquirer");
-const { getAnswer } = require("./module.js");
-const { getQuestion } = require("./module.js");
+const { getAnswer3 } = require("./module.js");
+const { getQuestion3 } = require("./module.js");
 
-async function callInquirers() {
-  const quest = await getQuestion();
-  const trueAnswer = await getAnswer();
+async function callInquirers3() {
+  const quest = await getQuestion3();
+  const trueAnswer = await getAnswer3();
 
-  await inquirer
-    .prompt([
-      {
-        type: "rawlist",
-        name: "theme",
-        message: "Выберите тему",
-        choices: ["ракун", "гг", "проебали"],
-      },
-    ])
-
-    .then((themes) => {
-      if (themes.theme === "ракун") {
-      }
-    });
   for (let i = 0; i < quest.length; i += 1) {
     await inquirer
       .prompt([
@@ -39,6 +25,6 @@ async function callInquirers() {
   }
 }
 
-callInquirers();
 
-module.exports = { callInquirers };
+
+module.exports = { callInquirers3 };
