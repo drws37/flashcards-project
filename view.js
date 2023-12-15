@@ -1,24 +1,30 @@
 const inquirer = require("inquirer");
+// const { getAnswer } = require("./controller.js");
+// const { getQuestion } = require("./controller.js");
 
-const quest = ['Твоё любимое животное?', 'Твоё не любимое животное?'];
+const quest = [
+  "Еноты являются травоядными, плотоядными или всеядными?",
+  "Еноты ведут ночной образ жизни",
+  "Еноты впадают в спячку",
+];
 
 async function callInquirers() {
-  const inq1 = await inquirer.prompt([
-    { type: "input", name: "username", message: "Введи имя:" },
-    {
-      type: "input",
-      name: "racoonMeal",
-      message: "Являются ли еноты травоядными, плотоядными или всеядными??",
-    },
-    {
-      type: "list",
-      name: "favAnimal",
-      message: `${quest[0]}`,
-      choices: ['Енот', 'Не енот'],
-    }
-  ]).then((answers) => console.log(answers));
-
+  const inq = await inquirer
+    .prompt([
+      { type: "input", name: "username", message: "Введи имя:" },
+    ])
+    .then((answers) => console.log(answers));
+  for (let i = 0; i < quest.length; i += 1) {
+    const inq = await inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "racoonMeal",
+        message: `${quest[i]}`,
+      },
+    ])
+    .then((answers) => console.log(answers));
+  }
 }
-
 
 callInquirers();
